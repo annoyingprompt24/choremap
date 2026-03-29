@@ -8,6 +8,8 @@ export const createSpace = (name) =>
   supabase.from('spaces').insert({ name }).select().single()
 
 // ── Items ────────────────────────────────────────────────
+// Change: include parent_id in upsert (already passes through via spread, no code change needed)
+// Ensure getItems fetches parent_id:
 export const getItems = (spaceId) =>
   supabase.from('items').select('*').eq('space_id', spaceId).order('created_at')
 

@@ -34,3 +34,9 @@ See `supabase/migrations/0001_initial.sql`
 - `npm run dev` — local dev
 - `npm run build` — production build (Railway runs this)
 - `npm run preview` — preview production build
+
+## Recent changes (snap grid, shapes, dark mode, nested tasks)
+- Snap-to-grid added to SpaceDesigner (16px grid, toggle button in toolbar)
+- Shape tool renamed: 'rect' draws rooms, 'circle' draws circular items; both already existed — no schema change needed
+- Dark mode: Tailwind CSS class-based dark mode (`darkMode: 'class'` in config, toggle button in App.jsx header sets `dark` class on `<html>`)
+- Task view hierarchy: Rooms (shape_type='rect') are top-level groups; Items (shape_type='circle' or 'label') nested underneath their parent room. Parent room is determined by spatial containment stored in a new optional `parent_id` column on `items`
